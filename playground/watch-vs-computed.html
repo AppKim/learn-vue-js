@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+        <p>{{num}}</p>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                num:10
+            },
+            // Appropriate logic: HTTP Connect
+            watch: {
+                num: function(newValue){
+                    this.fetchUserByNumber(newValue)
+                }
+            },
+            // Appropriate logic: Data Validation, Data Operation (Normal)
+            computed: {
+                doubleNum: function(){
+                    return this.num * 2
+                }
+            },
+            methods: {
+                fetchUserByNumber: function(num){
+                    // console.log(num);
+                    axios.get(num);
+                }
+            }
+        });
+    </script>
+  </body>
+</html>
