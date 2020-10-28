@@ -8,10 +8,9 @@
 export default {
   methods: {
     todoClear: function() {
-      localStorage.clear();
+      this.$emit('childClearAllTodo');
     }
   }
-
 }
 </script>
 
